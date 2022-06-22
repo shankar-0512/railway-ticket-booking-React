@@ -207,7 +207,7 @@ function Login(props) {
   //Request to backend for login and sign-up
   const SignUpRequestHandler = async (requestJson) => {
     sendTaskRequest({
-      url: "http://localhost:8080/api/protected/loginAuth",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/loginAuth",
       method: "post",
       headers: {
         "Content-Type": "application/json",
