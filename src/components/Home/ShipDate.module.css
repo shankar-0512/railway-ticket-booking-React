@@ -1,0 +1,43 @@
+.shipdate {
+  display: flex;
+  flex-direction: column;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 1px solid #ffffff;
+  font-weight: bold;
+  background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 40%, rgba(2,0,36,1) 100%);
+  color: rgb(255, 255, 255);
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.shipdate__month {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.shipdate__year {
+  font-size: 0.75rem;
+}
+
+.shipdate__day {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+@media (min-width: 766px) {
+
+  .shipdate__month {
+    font-size: 0.75rem;
+  }
+
+  .shipdate__year {
+    font-size: 0.75rem;
+  }
+
+  .shipdate__day {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}

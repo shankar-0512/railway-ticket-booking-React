@@ -1,0 +1,37 @@
+import ShipsCard from "../UI/Card/ShipsCard";
+import classes from "./Tickets.module.css";
+import ticketClasses from "../UI/Button/Button.module.css";
+import TicketDate from "./TicketDate";
+import Button from "../UI/Button/Button";
+
+function Tickets(props) {
+
+  function onTicketCancelHandler(event){
+    props.cancellationHandler(event.target.id);
+  }
+
+  return (
+    <li>
+      <ShipsCard className={classes.ship}>
+        <TicketDate journeyDate={props.journeyDate} />
+        <div>
+          <h1>{props.name}</h1>
+          <h2>
+            {props.boarding} ------------- {props.arrival}
+          </h2>
+          <h2>{props.duration} hrs</h2>
+        </div>
+        <div className={classes.ship__price}>${props.price}</div>
+        <Button
+          id={props.id}
+          type="button"
+          className={ticketClasses.ticket_button}
+          onClick={onTicketCancelHandler}
+        >
+          Cancel
+        </Button>
+      </ShipsCard>
+    </li>
+  );
+}
+export default Tickets;

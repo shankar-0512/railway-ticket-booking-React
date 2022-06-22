@@ -1,0 +1,20 @@
+.login {
+  width: 90%;
+  max-width: 40rem;
+  margin: 5rem auto;
+  padding: 2rem;
+}
+.select{
+  flex: 3;
+  font: inherit;
+  padding: 0.35rem 0.35rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.actions {
+  text-align: center;
+}
+.total {
+  color: rgb(0, 0, 0);
+  text-align: center;
+}

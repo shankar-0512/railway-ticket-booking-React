@@ -1,0 +1,26 @@
+.ticketDate {
+    display: flex;
+    flex-direction: column;
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 1px solid #ffffff;
+    background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 40%, rgba(2,0,36,1) 100%);
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ticketDate__month {
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  
+  .ticketDate__year {
+    font-size: 0.75rem;
+  }
+  
+  .ticketDate__day {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
