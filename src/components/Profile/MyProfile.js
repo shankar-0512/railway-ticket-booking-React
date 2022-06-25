@@ -72,7 +72,7 @@ function MyProfile() {
   //Request to backend for profile data
   const FetchProfileHandler = async (requestJson) => {
     sendFetchRequest({
-      url: "http://localhost:8080/api/protected/fetchProfileDetails",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/fetchProfileDetails",
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -87,7 +87,7 @@ function MyProfile() {
   //Request to backend for profile data
   const saveEditMode = async (requestJson) => {
     sendSaveRequest({
-      url: "http://localhost:8080/api/protected/saveUserDetails",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/saveUserDetails",
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -105,7 +105,7 @@ function MyProfile() {
   //Request to backend for changing password
   const ChangePasswordHandler = async (requestJson) => {
     sendPasswordRequest({
-      url: "http://localhost:8080/api/protected/changePassword",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/changePassword",
       method: "post",
       headers: {
         "Content-Type": "application/json",

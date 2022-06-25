@@ -115,7 +115,7 @@ function Booking() {
   //Request to backend for verification email
   const EmailVerification = async (requestJson) => {
     sendVerifyRequest({
-      url: "http://localhost:8080/api/protected/verifyUser",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/verifyUser",
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +130,7 @@ function Booking() {
   //Request to backend for checking OTP
   const OTPVerification = async (requestJson) => {
     sendOtpRequest({
-      url: "http://localhost:8080/api/protected/verifyOtp",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/verifyOtp",
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -147,7 +147,7 @@ function Booking() {
   //Request to backend for generating E-Ticket
   const generateETicket = async (requestJson) => {
     sendGenerateRequest({
-      url: "http://localhost:8080/api/protected/generateEticket",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/generateEticket",
       method: "post",
       headers: {
         "Content-Type": "application/json",
