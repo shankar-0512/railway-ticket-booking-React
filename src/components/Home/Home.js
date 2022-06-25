@@ -182,12 +182,6 @@ function Home() {
                 <option value="Titan" style={{ color: "black" }}>
                   Titan
                 </option>
-                <option value="EB-15" style={{ color: "black" }}>
-                  EB-15
-                </option>
-                <option value="ISS" style={{ color: "black" }}>
-                  ISS
-                </option>
                 <option value="Kepler-186F" style={{ color: "black" }}>
                   Kepler-186F
                 </option>
@@ -229,12 +223,6 @@ function Home() {
                 </option>
                 <option value="Titan" style={{ color: "black" }}>
                   Titan
-                </option>
-                <option value="EB-15" style={{ color: "black" }}>
-                  EB-15
-                </option>
-                <option value="ISS" style={{ color: "black" }}>
-                  ISS
                 </option>
                 <option value="Kepler-186F" style={{ color: "black" }}>
                   Kepler-186F
