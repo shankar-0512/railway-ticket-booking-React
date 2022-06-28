@@ -3,6 +3,7 @@
   display: flex;
   align-items: stretch;
   flex-direction: column;
+  font-size: 0.85rem;
 }
 
 .control label,
@@ -46,6 +47,7 @@
 .h2Profile {
   margin-bottom: 5rem;
   color: rgb(255, 255, 255);
+  font-size: 1.25rem;
 }
 .button {
   background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 40%, rgba(2,0,36,1) 100%);
@@ -66,9 +68,16 @@
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 853px) {
   .control {
     align-items: center;
     flex-direction: row;
+    font-size: 1rem;
+  }
+
+  .h2Profile {
+    margin-bottom: 5rem;
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
   }
 }

@@ -490,7 +490,7 @@ function Booking() {
                 className={classes.btn}
                 onClick={onClickAddPassenger}
               >
-                Add Passenger
+                Add
               </Button>
             )}
             <Button
