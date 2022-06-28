@@ -31,7 +31,7 @@ const MainNavigation = (props) => {
               to="/home/myBookings"
               className={(navData) => (navData.isActive ? classes.active : "")}
             >
-              My Bookings
+              Bookings
             </NavLink>
           </li>
           <li>
@@ -39,7 +39,7 @@ const MainNavigation = (props) => {
               to="/home/myProfile"
               className={(navData) => (navData.isActive ? classes.active : "")}
             >
-              My Profile
+              Profile
             </NavLink>
           </li>
           <li>
