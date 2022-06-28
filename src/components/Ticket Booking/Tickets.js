@@ -5,23 +5,22 @@ import TicketDate from "./TicketDate";
 import Button from "../UI/Button/Button";
 
 function Tickets(props) {
-
-  function onTicketCancelHandler(event){
+  function onTicketCancelHandler(event) {
     props.cancellationHandler(event.target.id);
   }
 
   return (
     <li>
-      <ShipsCard className={classes.ship}>
+      <ShipsCard className={classes.ticket}>
         <TicketDate journeyDate={props.journeyDate} />
-        <div>
-          <h1>{props.name}</h1>
-          <h2>
-            {props.boarding} ------------- {props.arrival}
-          </h2>
+        <div className={classes.ticket__description}>
           <h2>{props.duration} hrs</h2>
+          <h2>
+            {props.boarding} ------- {props.arrival}
+          </h2>
+          <h1>{props.name}</h1>
         </div>
-        <div className={classes.ship__price}>${props.price}</div>
+        <div className={classes.ticket__price}>${props.price}</div>
         <Button
           id={props.id}
           type="button"

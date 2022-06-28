@@ -30,6 +30,7 @@
 @media (min-width: 766px) {
 
   .shipdate{
+    width: 5.5rem;
     font-size: 1rem;
   }
 

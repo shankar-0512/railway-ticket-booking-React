@@ -1,4 +1,4 @@
-.ship {
+.ticket {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,41 +10,42 @@
     background-color: #ffffff;
   }
 
-  .ship__actions {
+  .ticket__actions {
     text-align: center;
     margin: 2%;
     font-size: 1rem;
   }
   
-  .ship__description {
+  .ticket__description {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    align-items: flex-end;
+    gap: 0.5rem;
+    align-items: center;
     flex-flow: column-reverse;
     justify-content: flex-start;
     flex: 1;
+
   }
   
-  .ship h1 {
+  .ticket h1 {
     color: #3a3a3a;
-    font-size: 1.5rem;
+    font-size: 0.75rem;
     flex: 1;
     margin: 0 1rem;
     color: rgb(0, 0, 0);
     text-align: center;
   }
 
-  .ship h2 {
+  .ticket h2 {
     color: #3a3a3a;
-    font-size: 1rem;
+    font-size: 0.5rem;
     flex: 1;
     margin: 0 1rem;
     color: rgb(0, 0, 0);
     text-align: center;
   }
   
-  .ship__price {
+  .ticket__price {
     font-size: 1rem;
     font-weight: bold;
     color: rgb(255, 255, 255);
@@ -54,7 +55,7 @@
     border-radius: 12px;
   }
   
-  @media (min-width: 766px) {
+  @media (min-width: 853px) {
 
     .ship {
       min-width: 100%;
@@ -82,5 +83,13 @@
       font-size: 1.25rem;
       text-align: center;
       margin: 2%;
+    }
+
+    .ticket h1 {
+      font-size: 1rem;
+    }
+  
+    .ticket h2 {
+      font-size: 0.75rem;
     }
   }
