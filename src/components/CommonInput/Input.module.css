@@ -15,6 +15,7 @@
     flex: 1;
     color: #464646;
     margin-bottom: 0.5rem;
+    text-align: left;
   }
   
   .control input {
@@ -42,5 +43,9 @@
     .control {
       align-items: center;
       flex-direction: row;
+    }
+
+    .control label {
+      text-align: center;
     }
 }
