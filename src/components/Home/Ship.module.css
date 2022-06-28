@@ -24,11 +24,13 @@
     flex-flow: column-reverse;
     justify-content: flex-start;
     flex: 1;
+    width: 40px;
   }
   
   .ship h2 {
     color: #3a3a3a;
-    font-size: 1rem;
+    font-size: 0.75rem;
+    text-align: center;
     flex: 1;
     margin: 0 1rem;
     color: rgb(0, 0, 0);
@@ -44,7 +46,7 @@
     border-radius: 12px;
   }
   
-  @media (min-width: 766px) {
+  @media (min-width: 853px) {
 
     .ship {
       min-width: 25%;
