@@ -360,7 +360,7 @@ function Booking() {
   if (verifyIsLoading) {
     return (
       <div className="centered">
-        <h2>Please wait, Sending verification mail...</h2>
+        <h2 className={styles.h2}>Please wait, Sending verification mail...</h2>
         <LoadingSpinner />
       </div>
     );
@@ -369,7 +369,7 @@ function Booking() {
   if (otpIsLoading) {
     return (
       <div className="centered">
-        <h2>Verifying...</h2>
+        <h2 className={styles.h2}>Verifying...</h2>
         <LoadingSpinner />
       </div>
     );
@@ -378,7 +378,7 @@ function Booking() {
   if (ticketIsLoading) {
     return (
       <div className="centered">
-        <h2>Making your Reservation, please do not leave this page...</h2>
+        <h2 className={styles.h2}>Making your Reservation, please do not leave this page...</h2>
         <LoadingSpinner />
       </div>
     );
