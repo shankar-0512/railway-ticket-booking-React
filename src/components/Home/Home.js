@@ -33,11 +33,8 @@ function Home() {
 
   const {
     isLoading,
-    error,
     sendRequest: sendTaskRequest,
     response,
-    resetError,
-    resetResponse,
   } = useHttp();
 
   //************API CALLS************//

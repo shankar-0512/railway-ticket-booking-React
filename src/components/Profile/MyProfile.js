@@ -23,11 +23,8 @@ function MyProfile() {
 
   const {
     isLoading: fetchIsLoading,
-    error: fetchError,
     sendRequest: sendFetchRequest,
     response: fetchResponse,
-    resetError: fetchResetError,
-    resetResponse: fetchResetResponse,
   } = useHttp();
 
   const {

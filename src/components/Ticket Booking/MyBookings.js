@@ -19,16 +19,12 @@ function MyBookings() {
 
   const {
     isLoading: bookingIsLoading,
-    error: bookingError,
     sendRequest: sendBookingRequest,
     response: bookingResponse,
-    resetError: resetBookingResponse,
-    resetResponse: resetBookingError,
   } = useHttp();
 
   const {
     isLoading: cancelIsLoading,
-    error: cancelError,
     sendRequest: sendCancelRequest,
     response: cancelResponse,
     resetError: resetCancelError,

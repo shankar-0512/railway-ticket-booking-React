@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import { Route, Routes, Navigate, Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { loginActions } from "./store/login-slice";
@@ -5,10 +6,14 @@ import { useDispatch } from "react-redux";
 import Login from "./components/Authentication/Login";
 import classes from "./components/UI/Button/Button.module.css";
 import { useState, useEffect } from "react";
-import Home from "./components/Home/Home";
-import MyProfile from "./components/Profile/MyProfile";
-import Booking from "./components/Ticket Booking/Booking";
-import MyBookings from "./components/Ticket Booking/MyBookings";
+import LoadingSpinner from "./components/UI/LoadingSpinner";
+
+const Home = React.lazy(() => import("./components/Home/Home"));
+const MyProfile = React.lazy(() => import("./components/Profile/MyProfile"));
+const MyBookings = React.lazy(() =>
+  import("./components/Ticket Booking/MyBookings")
+);
+const Booking = React.lazy(() => import("./components/Ticket Booking/Booking"));
 
 function App() {
   const navigate = useNavigate();
@@ -49,52 +54,60 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigate replace to="/login" />} />
-      <Route path="/login" element={<Login />}>
-        <Route
-          path=""
-          element={
-            <Link
-              style={{ textDecoration: "none" }}
-              className={classes.button}
-              to={"/signUp"}
-              onClick={resetNavigateLoginF}
-            >
-              New User?
-            </Link>
-          }
-        />
-      </Route>
-      <Route
-        path="/signUp"
-        element={
-          <Login
-            signUpFlag={signUpFlag}
-            postSignUp={postSignUpHandler}
-            loginF={navigateLoginF}
+    <Suspense
+      fallback={
+        <div className="centered">
+          <LoadingSpinner />
+        </div>
+      }
+    >
+      <Routes>
+        <Route path="/" element={<Navigate replace to="/login" />} />
+        <Route path="/login" element={<Login />}>
+          <Route
+            path=""
+            element={
+              <Link
+                style={{ textDecoration: "none" }}
+                className={classes.button}
+                to={"/signUp"}
+                onClick={resetNavigateLoginF}
+              >
+                New User?
+              </Link>
+            }
           />
-        }
-      >
+        </Route>
         <Route
-          path=""
+          path="/signUp"
           element={
-            <Link
-              style={{ textDecoration: "none" }}
-              className={classes.button}
-              to={"/login"}
-              onClick={postSignUpHandler}
-            >
-              Back
-            </Link>
+            <Login
+              signUpFlag={signUpFlag}
+              postSignUp={postSignUpHandler}
+              loginF={navigateLoginF}
+            />
           }
-        />
-      </Route>
-      <Route path="/home" element={<Home />} />
-      <Route path="/home/myProfile" element={<MyProfile />} />
-      <Route path="/home/booking/:shipId" element={<Booking />} />
-      <Route path="/home/myBookings" element={<MyBookings />} />
-    </Routes>
+        >
+          <Route
+            path=""
+            element={
+              <Link
+                style={{ textDecoration: "none" }}
+                className={classes.button}
+                to={"/login"}
+                onClick={postSignUpHandler}
+              >
+                Back
+              </Link>
+            }
+          />
+        </Route>
+        <Route path="/home" element={<Home />} />
+        <Route path="/home/myProfile" element={<MyProfile />} />
+        <Route path="/home/booking/:shipId" element={<Booking />} />
+        <Route path="/home/myBookings" element={<MyBookings />} />
+      </Routes>
+    </Suspense>
   );
 }
 

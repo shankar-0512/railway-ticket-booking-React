@@ -56,7 +56,6 @@ function Booking() {
     error: ticketError,
     sendRequest: sendGenerateRequest,
     response: ticketResponse,
-    resetError: resetTicketError,
     resetResponse: resetTicketResponse,
   } = useHttp();
 
