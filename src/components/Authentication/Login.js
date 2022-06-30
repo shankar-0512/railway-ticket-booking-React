@@ -19,96 +19,96 @@ var currentPassword = "";
 
 function emailReducer(state, action) {
   if (action.type === "USER_INPUT") {
-    return { value: action.val, isValid: action.val.includes("@") };
+    return { value: action.val, isvalid: action.val.includes("@") };
   }
   if (action.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.includes("@") };
+    return { value: state.value, isvalid: state.value.includes("@") };
   }
   if (action.type === "CLEAR") {
-    return { value: "", isValid: null };
+    return { value: "", isvalid: null };
   }
 
-  return { value: "", isValid: false };
+  return { value: "", isvalid: false };
 }
 
 function passwordReducer(state, action) {
   if (action.type === "USER_INPUT") {
-    return { value: action.val, isValid: action.val.trim().length > 6 };
+    return { value: action.val, isvalid: action.val.trim().length > 6 };
   }
   if (action.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.trim().length > 6 };
+    return { value: state.value, isvalid: state.value.trim().length > 6 };
   }
   if (action.type === "CLEAR") {
-    return { value: "", isValid: null };
+    return { value: "", isvalid: null };
   }
 
-  return { value: "", isValid: false };
+  return { value: "", isvalid: false };
 }
 
 function nameReducer(state, action) {
   if (action.type === "USER_INPUT") {
-    return { value: action.val, isValid: action.val.trim().length !== "" };
+    return { value: action.val, isvalid: action.val.trim() !== "" };
   }
   if (action.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.trim().length !== "" };
+    return { value: state.value, isvalid: state.value.trim() !== "" };
   }
   if (action.type === "CLEAR") {
-    return { value: "", isValid: null };
+    return { value: "", isvalid: null };
   }
 
-  return { value: "", isValid: false };
+  return { value: "", isvalid: false };
 }
 
 function rePasswordReducer(state, action) {
   if (action.type === "USER_INPUT") {
     return {
       value: action.val,
-      isValid: action.val.trim() === currentPassword.trim(),
+      isvalid: action.val.trim() === currentPassword.trim(),
     };
   }
   if (action.type === "INPUT_BLUR") {
     return {
       value: state.value,
-      isValid: state.value.trim() === currentPassword.trim(),
+      isvalid: state.value.trim() === currentPassword.trim(),
     };
   }
   if (action.type === "CLEAR") {
-    return { value: "", isValid: null };
+    return { value: "", isvalid: null };
   }
 
-  return { value: "", isValid: false };
+  return { value: "", isvalid: false };
 }
 
 function planetReducer(state, action) {
   if (action.type === "USER_INPUT") {
-    return { value: action.val, isValid: action.val.trim() !== "" };
+    return { value: action.val, isvalid: action.val.trim() !== "" };
   }
   if (action.type === "INPUT_BLUR") {
     return {
       value: state.value,
-      isValid: state.value.trim() !== "",
+      isvalid: state.value.trim() !== "",
     };
   }
   if (action.type === "CLEAR") {
-    return { value: "", isValid: null };
+    return { value: "", isvalid: null };
   }
-  return { value: "", isValid: false };
+  return { value: "", isvalid: false };
 }
 
 function dateReducer(state, action) {
   if (action.type === "USER_INPUT") {
-    return { value: action.val, isValid: action.val.trim() !== "" };
+    return { value: action.val, isvalid: action.val.trim() !== "" };
   }
   if (action.type === "INPUT_BLUR") {
     return {
       value: state.value,
-      isValid: state.value.trim() !== "",
+      isvalid: state.value.trim() !== "",
     };
   }
   if (action.type === "CLEAR") {
-    return { value: "", isValid: null };
+    return { value: "", isvalid: null };
   }
-  return { value: "", isValid: false };
+  return { value: "", isvalid: false };
 }
 
 function Login(props) {
@@ -118,35 +118,35 @@ function Login(props) {
   const dispatch = useDispatch();
 
   //STATES
-  const [formIsValid, setFormIsValid] = useState(false);
+  const [formisvalid, setFormisvalid] = useState(false);
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: "",
-    isValid: null,
+    isvalid: null,
   });
 
   const [nameState, dispatchName] = useReducer(nameReducer, {
     value: "",
-    isValid: null,
+    isvalid: null,
   });
 
   const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
     value: "",
-    isValid: null,
+    isvalid: null,
   });
 
   const [rePasswordState, dispatchRePassword] = useReducer(rePasswordReducer, {
     value: "",
-    isValid: null,
+    isvalid: null,
   });
 
   const [planetState, dispatchPlanet] = useReducer(planetReducer, {
     value: "",
-    isValid: null,
+    isvalid: null,
   });
 
   const [dateState, dispatchDate] = useReducer(dateReducer, {
     value: "",
-    isValid: null,
+    isvalid: null,
   });
 
   //REFS
@@ -171,16 +171,16 @@ function Login(props) {
     function () {
       const identifier = setTimeout(() => {
         if (props.signUpFlag) {
-          setFormIsValid(
-            nameState.isValid &&
-              emailState.isValid &&
-              passwordState.isValid &&
-              rePasswordState.isValid &&
-              planetState.isValid &&
-              dateState.isValid
+          setFormisvalid(
+            nameState.isvalid &&
+              emailState.isvalid &&
+              passwordState.isvalid &&
+              rePasswordState.isvalid &&
+              planetState.isvalid &&
+              dateState.isvalid
           );
         } else {
-          setFormIsValid(emailState.isValid && passwordState.isValid);
+          setFormisvalid(emailState.isvalid && passwordState.isvalid);
         }
       }, 200);
 
@@ -191,14 +191,14 @@ function Login(props) {
     //use effect dependencies - will re run every time below dependencies change.
     //Therefore useffect is guaranteed to use the latest state.
     [
-      nameState.isValid,
-      emailState.isValid,
-      passwordState.isValid,
-      rePasswordState.isValid,
-      planetState.isValid,
-      dateState.isValid,
+      nameState.isvalid,
+      emailState.isvalid,
+      passwordState.isvalid,
+      rePasswordState.isvalid,
+      planetState.isvalid,
+      dateState.isvalid,
       props.signUpFlag,
-      formIsValid,
+      formisvalid,
     ]
   );
 
@@ -278,7 +278,7 @@ function Login(props) {
       const enteredPlanet = planetState.value;
       const enteredDate = dateState.value;
 
-      if (formIsValid) {
+      if (formisvalid) {
         const requestJson = {
           enteredName,
           enteredEmail,
@@ -290,7 +290,7 @@ function Login(props) {
         };
 
         SignUpRequestHandler(requestJson);
-        setFormIsValid(false);
+        setFormisvalid(false);
         props.postSignUp();
         dispatchName({ type: "CLEAR" });
         dispatchEmail({ type: "CLEAR" });
@@ -303,7 +303,7 @@ function Login(props) {
       const enteredEmail = emailState.value;
       const enteredPassword = passwordState.value;
 
-      if (formIsValid) {
+      if (formisvalid) {
         const requestJson = {
           enteredEmail,
           enteredPassword,
@@ -311,7 +311,7 @@ function Login(props) {
         };
 
         SignUpRequestHandler(requestJson);
-        setFormIsValid(false);
+        setFormisvalid(false);
         dispatchEmail({ type: "CLEAR" });
         dispatchPassword({ type: "CLEAR" });
       }
@@ -373,50 +373,67 @@ function Login(props) {
         </Modal>
       )}
       <form onSubmit={submitHandler}>
+        {props.signUpFlag && (nameState.isvalid === false && (
+          <p className={classes.error}>Name cannot be empty!</p>
+        ))}
         {props.signUpFlag && (
           <Input
             ref={nameInputRef}
             id="name"
             label="Name"
             type="text"
-            isValid={nameState.isValid}
+            isvalid={nameState.isvalid}
             value={nameState.value}
             onChange={nameChangeHandler}
             onBlur={validateNameHandler}
           />
+        )}
+        {emailState.isvalid === false && (
+          <p className={classes.error}>Invalid E-Mail</p>
         )}
         <Input
           ref={emailInputRef}
           id="email"
           label="E-Mail"
           type="email"
-          isValid={emailState.isValid}
+          isvalid={emailState.isvalid}
           value={emailState.value}
           onChange={emailChangeHandler}
           onBlur={validateEmailHandler}
         />
+        {passwordState.isvalid === false && (
+          <p className={classes.error}>
+            Password should be greater than 6 characters!
+          </p>
+        )}
         <Input
           ref={passwordInputRef}
           id="password"
           label="Password"
           type="password"
-          isValid={passwordState.isValid}
+          isvalid={passwordState.isvalid}
           value={passwordState.value}
           onChange={passwordChangeHandler}
           onBlur={validatePasswordHandler}
         />
+        {props.signUpFlag && (rePasswordState.isvalid === false && (
+          <p className={classes.error}>Passwords do not match!</p>
+        ))}
         {props.signUpFlag && (
           <Input
             ref={rePasswordInputRef}
             id="rePassword"
             label="Confirm Password"
             type="password"
-            isValid={rePasswordState.isValid}
+            isvalid={rePasswordState.isvalid}
             value={rePasswordState.value}
             onChange={rePasswordChangeHandler}
             onBlur={validateRePasswordHandler}
           />
         )}
+        {props.signUpFlag && (planetState.isvalid === false && (
+          <p className={classes.error}>Please select a valid Planet!</p>
+        ))}
         {props.signUpFlag && (
           <div className={styles.control}>
             <label>Base Planet</label>
@@ -462,6 +479,9 @@ function Login(props) {
             </select>
           </div>
         )}
+        {props.signUpFlag && (dateState.isvalid === false && (
+          <p className={classes.error}>Please select your D.O.B</p>
+        ))}
         {props.signUpFlag && (
           <div className={styles.control}>
             <label htmlFor="date">Date of Birth</label>
@@ -470,7 +490,6 @@ function Login(props) {
               id="date"
               label="Journey Date"
               type="date"
-              isValid={dateState.isValid}
               value={dateState.value}
               onChange={dateChangeHandler}
               onBlur={validateDateHandler}
@@ -480,7 +499,7 @@ function Login(props) {
         )}
         {!props.signUpFlag && (
           <div className={classes.action}>
-            <Button type="submit" className={classes.btn}>
+            <Button type="submit" className={classes.btn} disabled={!formisvalid && true}>
               Sign in
             </Button>
             <Outlet />
@@ -488,7 +507,7 @@ function Login(props) {
         )}
         {props.signUpFlag && (
           <div className={classes.action}>
-            <Button type="submit" className={classes.btn}>
+            <Button type="submit" className={classes.btn} disabled={!formisvalid && true}>
               Sign up
             </Button>
             <Outlet />
