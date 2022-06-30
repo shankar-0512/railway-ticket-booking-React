@@ -9,11 +9,9 @@ const loginSlice = createSlice({
   reducers: {
     LoginStateHandler(state) {
       state.isAuthenticated = !state.isAuthenticated;
-      console.log("isauth :" + state.isAuthenticated);
     },
     UpdateUserId(state, action){
       state.userId = action.payload;
-      console.log("userId :" + state.userId);
     }
   },
 });

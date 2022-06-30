@@ -14,7 +14,6 @@ const userInputSlice = createSlice({
       state.to = action.payload.to;
       state.journeyDate = action.payload.journeyDate;
       state.class = action.payload.class;
-      console.log("from :" + state.from);
     },
   },
 });

@@ -177,8 +177,6 @@ function Booking() {
 
   function onClickAddPassenger() {
     setPassengerCount(passengerCount + 1);
-    console.log(formInputsValidity.user2NameIsValid);
-    console.log(formInputsValidity.userNameIsValid);
   }
 
   function bookingSubmitHandler(event) {

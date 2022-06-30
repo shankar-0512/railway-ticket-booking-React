@@ -201,7 +201,6 @@ function MyProfile() {
   function closeErrorModal() {
     saveResetError();
     saveResetResponse();
-    console.log(saveResponse.responseMessage);
     if (saveResponse.responseMessage === undefined) {
       navigate("/home");
     }
