@@ -10,6 +10,7 @@
   padding: 0.35rem 0.35rem;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 0.85rem;
 }
 .actions {
   text-align: center;
@@ -59,10 +60,21 @@
   position: relative;
   margin-bottom: 0.5rem;
   text-align: center;
+  font-size: 1rem;
 }
 .h2 {
   font-size: 1rem;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .select {
+    font-size: 1rem;
+  }
+
+  .heading {
+    font-size: 1.25rem;
+  }
 }
 
 @media (min-width: 853px) {

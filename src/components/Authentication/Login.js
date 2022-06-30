@@ -409,7 +409,7 @@ function Login(props) {
           <Input
             ref={rePasswordInputRef}
             id="rePassword"
-            label="Re-Password"
+            label="Confirm Password"
             type="password"
             isValid={rePasswordState.isValid}
             value={rePasswordState.value}

@@ -10,6 +10,7 @@
   padding: 0.35rem 0.35rem;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 0.85rem;
 }
 .actions {
   text-align: center;
@@ -17,4 +18,10 @@
 .total {
   color: rgb(0, 0, 0);
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .select {
+    font-size: 1rem;
+  }
 }

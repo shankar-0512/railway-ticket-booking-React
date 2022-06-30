@@ -294,7 +294,7 @@ function MyProfile() {
           <Input
             ref={oldPswInputRef}
             id="oldPsw"
-            label="Old Password :"
+            label="Old Password"
             type="password"
             value={oldPsw}
             onChange={oldPswChangeHandler}
@@ -302,7 +302,7 @@ function MyProfile() {
           <Input
             ref={newPswInputRef}
             id="newPsw"
-            label="New Password :"
+            label="New Password"
             type="password"
             value={newPsw}
             onChange={newPswChangeHandler}
@@ -310,7 +310,7 @@ function MyProfile() {
           <Input
             ref={confirmNewPswInputRef}
             id="conNewPsw"
-            label="Confirm New Password :"
+            label="Confirm New Password"
             type="password"
             value={confirmNewPsw}
             onChange={confirmNewPswChangeHandler}
