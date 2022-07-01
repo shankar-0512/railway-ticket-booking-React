@@ -9,8 +9,7 @@ const MainNavigation = (props) => {
 
   function logoutHandler() {
     dispatch(loginActions.LoginStateHandler());
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userId");
+    localStorage.clear();
   }
 
   return (

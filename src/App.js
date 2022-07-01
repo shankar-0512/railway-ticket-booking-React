@@ -21,6 +21,8 @@ function App() {
   const [signUpFlag, setSignUpFlag] = useState(true);
   const [navigateLoginF, setNavigateLoginF] = useState(true);
 
+  const [sessionTimeout, setSessionTimeout] = useState(false);
+
   const isAuthenticated = useSelector((state) => state.login.isAuthenticated);
 
   function postSignUpHandler() {
@@ -34,6 +36,8 @@ function App() {
 
   useEffect(() => {
     if (isAuthenticated) {
+      localStorage.setItem("setupTime", now);
+      setSessionTimeout(false);
       navigate("/home");
     }
   }, [isAuthenticated]);
@@ -43,6 +47,22 @@ function App() {
       navigate("/login");
     }
   }, [isAuthenticated]);
+
+  if (isAuthenticated) {
+    var hours = 6; // to clear the localStorage after 1 hour
+    // (if someone want to clear after 8hrs simply change hours=8)
+    var now = new Date().getTime();
+    var setupTime = localStorage.getItem("setupTime");
+    if (setupTime == null) {
+      localStorage.setItem("setupTime", now);
+    } else {
+      if (now - setupTime > hours * 60 * 60 * 1000) {
+        dispatch(loginActions.LoginStateHandler());
+        setSessionTimeout(true);
+        localStorage.clear();
+      }
+    }
+  }
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("isLoggedIn");
@@ -63,7 +83,10 @@ function App() {
     >
       <Routes>
         <Route path="/" element={<Navigate replace to="/login" />} />
-        <Route path="/login" element={<Login />}>
+        <Route
+          path="/login"
+          element={<Login sessionTimeout={sessionTimeout} />}
+        >
           <Route
             path=""
             element={

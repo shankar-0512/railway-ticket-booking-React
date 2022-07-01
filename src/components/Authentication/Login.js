@@ -373,9 +373,12 @@ function Login(props) {
         </Modal>
       )}
       <form onSubmit={submitHandler}>
-        {props.signUpFlag && (nameState.isvalid === false && (
+        {props.sessionTimeout && (
+          <p className={classes.error}>Session Expired! Please login again.</p>
+        )}
+        {props.signUpFlag && nameState.isvalid === false && (
           <p className={classes.error}>Name cannot be empty!</p>
-        ))}
+        )}
         {props.signUpFlag && (
           <Input
             ref={nameInputRef}
@@ -401,10 +404,13 @@ function Login(props) {
           onChange={emailChangeHandler}
           onBlur={validateEmailHandler}
         />
-        {passwordState.isvalid === false && (
+        {passwordState.isvalid === false && props.signUpFlag && (
           <p className={classes.error}>
             Password should be greater than 6 characters!
           </p>
+        )}
+        {passwordState.isvalid === false && !props.signUpFlag && (
+          <p className={classes.error}>Invalid Password</p>
         )}
         <Input
           ref={passwordInputRef}
@@ -416,9 +422,9 @@ function Login(props) {
           onChange={passwordChangeHandler}
           onBlur={validatePasswordHandler}
         />
-        {props.signUpFlag && (rePasswordState.isvalid === false && (
+        {props.signUpFlag && rePasswordState.isvalid === false && (
           <p className={classes.error}>Passwords do not match!</p>
-        ))}
+        )}
         {props.signUpFlag && (
           <Input
             ref={rePasswordInputRef}
@@ -431,9 +437,9 @@ function Login(props) {
             onBlur={validateRePasswordHandler}
           />
         )}
-        {props.signUpFlag && (planetState.isvalid === false && (
+        {props.signUpFlag && planetState.isvalid === false && (
           <p className={classes.error}>Please select a valid Planet!</p>
-        ))}
+        )}
         {props.signUpFlag && (
           <div className={styles.control}>
             <label>Base Planet</label>
@@ -479,9 +485,9 @@ function Login(props) {
             </select>
           </div>
         )}
-        {props.signUpFlag && (dateState.isvalid === false && (
+        {props.signUpFlag && dateState.isvalid === false && (
           <p className={classes.error}>Please select your D.O.B</p>
-        ))}
+        )}
         {props.signUpFlag && (
           <div className={styles.control}>
             <label htmlFor="date">Date of Birth</label>
@@ -499,7 +505,11 @@ function Login(props) {
         )}
         {!props.signUpFlag && (
           <div className={classes.action}>
-            <Button type="submit" className={classes.btn} disabled={!formisvalid && true}>
+            <Button
+              type="submit"
+              className={classes.btn}
+              disabled={!formisvalid && true}
+            >
               Sign in
             </Button>
             <Outlet />
@@ -507,7 +517,11 @@ function Login(props) {
         )}
         {props.signUpFlag && (
           <div className={classes.action}>
-            <Button type="submit" className={classes.btn} disabled={!formisvalid && true}>
+            <Button
+              type="submit"
+              className={classes.btn}
+              disabled={!formisvalid && true}
+            >
               Sign up
             </Button>
             <Outlet />
