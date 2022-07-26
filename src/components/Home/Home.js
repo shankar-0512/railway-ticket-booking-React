@@ -9,6 +9,7 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { userInputActions } from "../../store/userInputsSlice"
+import phoenix from "../../Logos/phoenix-logo.png"
 
 function Home() {
 
@@ -145,6 +146,7 @@ function Home() {
     <div>
       <Layout>
         <section className={classes.summary}>
+          <img src={phoenix} alt="" />
           <h3 className={classes.heading}>Book a Ship</h3>
           <form onSubmit={submitHandler}>
             {!formInputsValidity.from && (

@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { loginActions } from "./store/login-slice";
 import { useDispatch } from "react-redux";
 import Login from "./components/Authentication/Login";
-import classes from "./components/UI/Button/Button.module.css";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
 
@@ -92,7 +91,7 @@ function App() {
             element={
               <Link
                 style={{ textDecoration: "none" }}
-                className={classes.button}
+                className={null}
                 to={"/signUp"}
                 onClick={resetNavigateLoginF}
               >
@@ -116,11 +115,11 @@ function App() {
             element={
               <Link
                 style={{ textDecoration: "none" }}
-                className={classes.button}
+                className={null}
                 to={"/login"}
                 onClick={postSignUpHandler}
               >
-                Back
+                Already have an account?
               </Link>
             }
           />

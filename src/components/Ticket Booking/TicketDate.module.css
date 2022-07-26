@@ -5,7 +5,8 @@
     height: 5.5rem;
     font-size: 0.75rem;
     border: 1px solid #ffffff;
-    background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 40%, rgba(2,0,36,1) 100%);
+    background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+    background-size: 200% auto;
     color: rgb(255, 255, 255);
     border-radius: 12px;
     align-items: center;

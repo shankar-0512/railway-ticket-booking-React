@@ -49,16 +49,9 @@
   color: rgb(255, 255, 255);
   font-size: 1.25rem;
 }
-.button {
-  background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 40%, rgba(2,0,36,1) 100%);
-}
-.button:hover,
-.button:active {
-  background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 130%, rgba(2,0,36,1) 100%);
-  border-color: #ffffff;
-}
-.button:focus {
-  outline: none;
+.button{
+  box-shadow: 0 0 8px #eee;
+  border: none;
 }
 .actions {
   text-align: center;

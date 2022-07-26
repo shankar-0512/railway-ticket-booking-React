@@ -1,20 +1,25 @@
 .button {
-  font: inherit;
-  border: 1px solid #000000;
-  background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 40%, rgba(2,0,36,1) 100%);
-  color: rgb(255, 255, 255);
+  background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+  margin: 10px;
   padding: 0.50rem 1.5rem;
   cursor: pointer;
+  text-align: center;
   font-size: 0.90rem;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border: 1px solid white;
   border-radius: 30px;
   margin-right: 2%;
   margin-top: 2%;
 }
 
-.button:hover,
-.button:active {
-  background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 130%, rgba(2,0,36,1) 100%);
-  border-color: #ffffff;
+.button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 .button:focus {
@@ -32,24 +37,29 @@ button:active:disabled {
 }
 
 .ship_button {
-  font: inherit;
-  border: 1px solid #000000;
-  background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 40%, rgba(2,0,36,1) 100%);
-  color: rgb(255, 255, 255);
+  background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+  margin: 10px;
   padding: 0.50rem 1.5rem;
   cursor: pointer;
+  text-align: center;
   font-size: 0.90rem;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
   border-radius: 30px;
+  box-shadow: 0 0 20px #eee;
+  border: 1px solid white;
   margin-right: 2%;
   margin-top: 2%;
-  text-align: center;
   margin: 2%;
 }
 
-.ship_button:hover,
-.ship_button:active {
-  background: -webkit-linear-gradient(-90deg, rgba(9,9,121,1) 0%, rgba(5,3,62,1) 130%, rgba(2,0,36,1) 100%);
-  border-color: #ffffff;
+.ship_button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 .ship_button:focus {
@@ -57,24 +67,27 @@ button:active:disabled {
 }
 
 .ticket_button {
-  font: inherit;
-  border: 1px solid #000000;
-  background: -webkit-linear-gradient(top, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
-  color: rgb(255, 255, 255);
+  background-image: linear-gradient(to right, #8E0E00 0%, #1F1C18  51%, #8E0E00  100%);
+  margin: 10px;
   padding: 0.50rem 1.5rem;
   cursor: pointer;
+  text-align: center;
   font-size: 0.90rem;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border: 1px solid white;
   border-radius: 30px;
   margin-right: 2%;
   margin-top: 2%;
-  text-align: center;
-  margin: 2%;
 }
 
-.ticket_button:hover,
-.ticket_button:active {
-  background: -webkit-linear-gradient(top, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 80%,rgba(109,0,25,1) 100%);
-  border-color: #ffffff;
+.ticket_button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 .ticket_button:focus {
@@ -84,21 +97,21 @@ button:active:disabled {
 @media (min-width: 853px) {
 
   .button{
-    font-size: 1.15rem;
+    font-size: 1rem;
     border-radius: 30px;
     margin-right: 2%;
     margin-top: 2%;
   }
 
   .ship_button{
-    font-size: 1.15rem;
+    font-size: 1rem;
     border-radius: 30px;
     margin-right: 2%;
     margin-top: 2%;
   }
 
   .ticket_button{
-    font-size: 1.15rem;
+    font-size: 1rem;
     border-radius: 30px;
     margin-right: 2%;
     margin-top: 2%;
