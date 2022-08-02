@@ -5,7 +5,7 @@ import { loginActions } from "./store/login-slice";
 import { useDispatch } from "react-redux";
 import Login from "./components/Authentication/Login";
 import { useState, useEffect } from "react";
-import LoadingSpinner from "./components/UI/LoadingSpinner";
+import LoadingSpinner from "./components/UI/LoadingSpinner"; 
 
 const Home = React.lazy(() => import("./components/Home/Home"));
 const MyProfile = React.lazy(() => import("./components/Profile/MyProfile"));
