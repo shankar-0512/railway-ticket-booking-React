@@ -43,7 +43,7 @@ function Home() {
   //Request to backend for login and sign-up
   const SearchShipsHandler = async (requestJson) => {
     sendTaskRequest({
-      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/searchShips",
+      url: "http://localhost:8080/api/protected/searchShips",
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function Home() {
         from: requestJson.enteredFrom,
         to: requestJson.enteredTo,
         shipClass: requestJson.enteredClass,
-        journeyDate: requestJson.enteredDate,
+        journeyDate: new Date(requestJson.enteredDate),
       },
       errorMsg: "Request failed!",
     });

@@ -18,6 +18,7 @@ function TicketList(props) {
             journeyDate={new Date(ticket.journeyDate)}
             duration={ticket.duration}
             price={ticket.price}
+            bookingStatus={ticket.bookingStatus}
             cancellationHandler={props.cancellationHandler}
           />
         );
