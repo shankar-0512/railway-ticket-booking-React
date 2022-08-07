@@ -38,7 +38,7 @@ function MyBookings() {
   //Request to backend for bookings data
   const fetchBookingDetails = async (requestJson) => {
     sendBookingRequest({
-      url: "http://localhost:8080/api/protected/fetchBookingDetails",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/fetchBookingDetails",
       method: "post",
       headers: {
         "Content-Type": "application/json",

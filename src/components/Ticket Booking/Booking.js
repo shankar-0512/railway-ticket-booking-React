@@ -146,7 +146,7 @@ function Booking() {
   //Request to backend for generating E-Ticket
   const generateETicket = async (requestJson) => {
     sendGenerateRequest({
-      url: "http://localhost:8080/api/protected/generateEticket",
+      url: "https://space-ticket-booking-java.herokuapp.com/generateEticket",
       method: "post",
       headers: {
         "Content-Type": "application/json",
