@@ -9,7 +9,7 @@ function Tickets(props) {
     props.cancellationHandler(event.target.id);
   }
 
-  const status = props.bookingStatus === "CNF" ? "Confirmed" : "Waiting List";
+  const status = props.bookingStatus === "CNF" ? "Confirmed" : "Waitlisted";
   const statusClasses = props.bookingStatus === "CNF" ? classes.ticket__cnfStatus : classes.ticket__wlStatus;
 
   return (

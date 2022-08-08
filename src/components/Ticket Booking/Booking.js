@@ -14,8 +14,6 @@ import { useSelector } from "react-redux";
 
 //************GLOBAL VARIABLES************//
 
-var form1IsValid = false;
-var form2IsValid = false;
 var formIsValid = false;
 var otpRetries = 3;
 
@@ -64,8 +62,6 @@ function Booking() {
   const ageInputRef = useRef();
   const emailInputRef = useRef();
   const phoneInputRef = useRef();
-  const name2InputRef = useRef();
-  const age2InputRef = useRef();
   const otpInputRef = useRef();
 
   //STATES
@@ -73,17 +69,12 @@ function Booking() {
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [user2Name, setUser2Name] = useState("");
-  const [age2, setAge2] = useState("");
   const [otp, setOtp] = useState("");
-  const [passengerCount, setPassengerCount] = useState(1);
   const [formInputsValidity, setFormInputsValidity] = useState({
     userNameIsValid: true,
     ageIsValid: true,
     emailIsValid: true,
     phoneNumberIsValid: true,
-    user2NameIsValid: true,
-    age2IsValid: true,
   });
 
   //STATE HANDLERS
@@ -98,12 +89,6 @@ function Booking() {
   }
   function phoneNumberChangeHandler(event) {
     setPhoneNumber(event.target.value);
-  }
-  function name2ChangeHandler(event) {
-    setUser2Name(event.target.value);
-  }
-  function age2ChangeHandler(event) {
-    setAge2(event.target.value);
   }
   function otpChangeHandler(event) {
     setOtp(event.target.value);
@@ -146,17 +131,15 @@ function Booking() {
   //Request to backend for generating E-Ticket
   const generateETicket = async (requestJson) => {
     sendGenerateRequest({
-      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/generateEticket",
+      url: "http://localhost:8080/api/protected/generateEticket",
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: {
         userName: requestJson.userName,
-        user2Name: requestJson.user2Name,
         userEmail: requestJson.email,
         userAge: requestJson.age,
-        user2Age: requestJson.age2,
         shipId: requestJson.shipId,
         shipClass: requestJson.shipClass,
         boardingStation: requestJson.boardingStation,
@@ -174,10 +157,6 @@ function Booking() {
     navigate("/home");
   }
 
-  function onClickAddPassenger() {
-    setPassengerCount(passengerCount + 1);
-  }
-
   function bookingSubmitHandler(event) {
     event.preventDefault();
 
@@ -193,34 +172,8 @@ function Booking() {
       phoneNumberIsValid: phoneValidity,
     });
 
-    form1IsValid =
+    formIsValid =
       userNameValidity && ageValidity && emailValidity && phoneValidity;
-
-    formIsValid = form1IsValid;
-
-    if (passengerCount === 2) {
-      const user2Validity = user2Name.trim() !== "";
-      const age2Validity = age2.trim() > 0;
-
-      setFormInputsValidity({
-        userNameIsValid: userNameValidity,
-        ageIsValid: ageValidity,
-        emailIsValid: emailValidity,
-        phoneNumberIsValid: phoneValidity,
-        user2NameIsValid: user2Validity,
-        age2IsValid: age2Validity,
-      });
-
-      form2IsValid =
-        userNameValidity &&
-        ageValidity &&
-        emailValidity &&
-        phoneValidity &&
-        user2Validity &&
-        age2Validity;
-
-      formIsValid = form1IsValid && form2IsValid;
-    }
 
     if (formIsValid) {
       setFormInputsValidity({
@@ -228,8 +181,6 @@ function Booking() {
         ageIsValid: true,
         emailIsValid: true,
         phoneNumberIsValid: true,
-        user2NameIsValid: true,
-        age2IsValid: true,
       });
 
       const requestJson = { email };
@@ -273,10 +224,8 @@ function Booking() {
   if (otpResponse.responseCode === 0) {
     const requestJson = {
       userName,
-      user2Name,
       email,
       age,
-      age2,
       shipId,
       shipClass,
       boardingStation,
@@ -386,8 +335,8 @@ function Booking() {
       {(verifyError ||
         (verifyResponse.responseCode === 0 &&
           otpResponse.responseCode !== 1)) && (
-        <Modal onClose={null}>{BookingModalContent}</Modal>
-      )}
+          <Modal onClose={null}>{BookingModalContent}</Modal>
+        )}
       {(ticketError || ticketResponse.responseCode === 0) && (
         <Modal onClose={null}>
           {ticketModalContent}
@@ -447,49 +396,10 @@ function Booking() {
             value={phoneNumber}
             onChange={phoneNumberChangeHandler}
           />
-          {passengerCount === 2 && (
-            <h3 className={classes.h2}>Passenger 2 - Details</h3>
-          )}
-
-          {passengerCount === 2 && !formInputsValidity.user2NameIsValid && (
-            <p className={styles.error}>Please enter your Name.</p>
-          )}
-          {passengerCount === 2 && (
-            <Input
-              ref={name2InputRef}
-              id="name2"
-              label="Name"
-              type="text"
-              value={user2Name}
-              onChange={name2ChangeHandler}
-            />
-          )}
-          {passengerCount === 2 && !formInputsValidity.age2IsValid && (
-            <p className={styles.error}>Please enter your Age.</p>
-          )}
-          {passengerCount === 2 && (
-            <Input
-              ref={age2InputRef}
-              id="age2"
-              label="Age"
-              type="number"
-              value={age2}
-              onChange={age2ChangeHandler}
-            />
-          )}
           <div className={loginStyles.action}>
             <Button type="submit" className={classes.btn}>
               Book
             </Button>
-            {passengerCount < 2 && (
-              <Button
-                type="button"
-                className={classes.btn}
-                onClick={onClickAddPassenger}
-              >
-                Add
-              </Button>
-            )}
             <Button
               type="button"
               className={classes.btn}
