@@ -16,6 +16,7 @@ function ShipList(props) {
             name={ship.shipName}
             price={ship.price}
             duration={ship.duration}
+            ticketsAvailable={ship.ticketsAvailable}
           />
         );
       })}

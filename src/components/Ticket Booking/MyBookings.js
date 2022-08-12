@@ -53,7 +53,7 @@ function MyBookings() {
   //Request to backend for cancelling ticket
   const cancelTicket = async (requestJson) => {
     sendCancelRequest({
-      url: "http://localhost:8080/api/protected/cancelTicket",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/cancelTicket",
       method: "post",
       headers: {
         "Content-Type": "application/json",
