@@ -1,113 +1,121 @@
 .ticket {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    margin: 1rem 0;
-    min-width: 25%;
-    margin-right: 3%;
-    margin-left: 1%;
-    background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  min-width: 25%;
+  margin-right: 3%;
+  margin-left: 1%;
+  background-color: #ffffff;
+}
+
+.ticket__actions {
+  text-align: center;
+  margin: 2%;
+  font-size: 1rem;
+}
+
+.ticket__description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  flex-flow: column-reverse;
+  justify-content: flex-start;
+  flex: 1;
+
+}
+
+.ticket h1 {
+  color: #3a3a3a;
+  font-size: 0.75rem;
+  flex: 1;
+  margin: 0 1rem;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.ticket h2 {
+  color: #3a3a3a;
+  font-size: 0.5rem;
+  flex: 1;
+  margin: 0 1rem;
+  text-align: center;
+}
+
+.ticket__cnfStatus {
+  font-size: 0.40rem;
+  font-weight: bold;
+  flex: 1;
+  margin: 0 1rem;
+  text-align: center;
+  color: green;
+}
+
+.ticket__wlStatus {
+  font-size: 0.40rem;
+  font-weight: bold;
+  flex: 1;
+  margin: 0 1rem;
+  text-align: center;
+  color: orange;
+}
+
+.ticket__price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+  background-size: 200% auto;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+@media (min-width: 853px) {
+
+  .ship {
+    min-width: 100%;
+    margin-right: 5%;
+    margin-left: 0%;
   }
 
-  .ticket__actions {
-    text-align: center;
-    margin: 2%;
-    font-size: 1rem;
-  }
-  
-  .ticket__description {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .ship__description {
+    flex-direction: row;
     align-items: center;
-    flex-flow: column-reverse;
     justify-content: flex-start;
     flex: 1;
-
   }
-  
-  .ticket h1 {
-    color: #3a3a3a;
-    font-size: 0.75rem;
-    flex: 1;
-    margin: 0 1rem;
-    color: rgb(0, 0, 0);
+
+  .ship__description h2 {
+    font-size: 1.25rem;
+  }
+
+  .ship__price {
+    font-size: 1.25rem;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .ship__actions {
+    font-size: 1.25rem;
     text-align: center;
+    margin: 2%;
+  }
+
+  .ticket h1 {
+    font-size: 1rem;
   }
 
   .ticket h2 {
-    color: #3a3a3a;
-    font-size: 0.5rem;
-    flex: 1;
-    margin: 0 1rem;
-    text-align: center;
+    font-size: 0.75rem;
   }
 
   .ticket__cnfStatus {
     font-size: 0.70rem;
-    font-weight: bold;
-    flex: 1;
-    margin: 0 1rem;
-    text-align: center;
-    color: green;
   }
-
+  
   .ticket__wlStatus {
     font-size: 0.70rem;
-    font-weight: bold;
-    flex: 1;
-    margin: 0 1rem;
-    text-align: center;
-    color: orange;
   }
-  
-  .ticket__price {
-    font-size: 1rem;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
-    background-size: 200% auto;
-    border: 1px solid rgb(255, 255, 255);
-    padding: 0.5rem;
-    border-radius: 12px;
-  }
-  
-  @media (min-width: 853px) {
-
-    .ship {
-      min-width: 100%;
-      margin-right: 5%;
-      margin-left: 0%;
-    }
-
-    .ship__description {
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      flex: 1;
-    }
-  
-    .ship__description h2 {
-      font-size: 1.25rem;
-    }
-  
-    .ship__price {
-      font-size: 1.25rem;
-      padding: 0.5rem 1.5rem;
-    }
-
-    .ship__actions {
-      font-size: 1.25rem;
-      text-align: center;
-      margin: 2%;
-    }
-
-    .ticket h1 {
-      font-size: 1rem;
-    }
-  
-    .ticket h2 {
-      font-size: 0.75rem;
-    }
-  }
+}

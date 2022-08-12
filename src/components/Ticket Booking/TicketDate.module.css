@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 10%;
-    height: 5.5rem;
+    height: 7rem;
     font-size: 0.75rem;
     border: 1px solid #ffffff;
     background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
@@ -32,6 +32,7 @@
     .ticketDate{
       width: 5.5rem;
       font-size: 1rem;
+      height: 5.5rem;
     }
   
     .ticketDate__month {
