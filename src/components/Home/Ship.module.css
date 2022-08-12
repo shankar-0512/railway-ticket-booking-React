@@ -62,8 +62,8 @@
       flex: 1;
     }
   
-    .ship__description h2 {
-      font-size: 1.25rem;
+    .ship h2 {
+      font-size: 1rem;
     }
   
     .ship__price {
