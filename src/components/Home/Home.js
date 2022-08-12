@@ -12,7 +12,6 @@ import { userInputActions } from "../../store/userInputsSlice"
 import phoenix from "../../Logos/phoenix-logo.png"
 
 function Home() {
-
   //************DECLARATIONS************//
 
   const dispatch = useDispatch();
@@ -98,10 +97,10 @@ function Home() {
       };
 
       dispatch(userInputActions.UpdateUserInputs({
-        from : enteredFrom,
-        to : enteredTo,
-        class : enteredClass,
-        journeyDate : enteredDate,
+        from: enteredFrom,
+        to: enteredTo,
+        class: enteredClass,
+        journeyDate: enteredDate,
       }));
 
       setFormInputsValidity({
@@ -119,18 +118,14 @@ function Home() {
     }
   }
 
-  const fromControlClasses = `${styles.control} ${
-    formInputsValidity.from === true ? "" : styles.invalid
-  }`;
-  const toControlClasses = `${styles.control} ${
-    formInputsValidity.to === true ? "" : styles.invalid
-  }`;
-  const classControlClasses = `${styles.control} ${
-    formInputsValidity.class === true ? "" : styles.invalid
-  }`;
-  const dateControlClasses = `${styles.control} ${
-    formInputsValidity.date === true ? "" : styles.invalid
-  }`;
+  const fromControlClasses = `${styles.control} ${formInputsValidity.from === true ? "" : styles.invalid
+    }`;
+  const toControlClasses = `${styles.control} ${formInputsValidity.to === true ? "" : styles.invalid
+    }`;
+  const classControlClasses = `${styles.control} ${formInputsValidity.class === true ? "" : styles.invalid
+    }`;
+  const dateControlClasses = `${styles.control} ${formInputsValidity.date === true ? "" : styles.invalid
+    }`;
 
   //************LOADING SPINNERS************//
 

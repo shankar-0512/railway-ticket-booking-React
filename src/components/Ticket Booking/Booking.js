@@ -70,6 +70,7 @@ function Booking() {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
+
   const [formInputsValidity, setFormInputsValidity] = useState({
     userNameIsValid: true,
     ageIsValid: true,

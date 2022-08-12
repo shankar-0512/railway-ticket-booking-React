@@ -5,7 +5,7 @@ import { loginActions } from "./store/login-slice";
 import { useDispatch } from "react-redux";
 import Login from "./components/Authentication/Login";
 import { useState, useEffect } from "react";
-import LoadingSpinner from "./components/UI/LoadingSpinner"; 
+import LoadingSpinner from "./components/UI/LoadingSpinner";
 
 const Home = React.lazy(() => import("./components/Home/Home"));
 const MyProfile = React.lazy(() => import("./components/Profile/MyProfile"));
@@ -56,6 +56,7 @@ function App() {
       localStorage.setItem("setupTime", now);
     } else {
       if (now - setupTime > hours * 60 * 60 * 1000) {
+        console.log("timedOut")
         dispatch(loginActions.LoginStateHandler());
         setSessionTimeout(true);
         localStorage.clear();
@@ -70,7 +71,7 @@ function App() {
       dispatch(loginActions.LoginStateHandler());
       dispatch(loginActions.UpdateUserId(userId));
     }
-  }, [dispatch]);
+  }, []);
 
   return (
     <Suspense
