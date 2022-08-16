@@ -56,7 +56,6 @@ function App() {
       localStorage.setItem("setupTime", now);
     } else {
       if (now - setupTime > hours * 60 * 60 * 1000) {
-        console.log("timedOut")
         dispatch(loginActions.LoginStateHandler());
         setSessionTimeout(true);
         localStorage.clear();
