@@ -49,13 +49,13 @@
 
   .ship__statusConfirmed{
     color: green;
-    font-size: 0.25rem;
+    font-size: 0.40rem;
     font-weight: bold;
   }
 
   .ship__statusWaitlisted{
     color: orange;
-    font-size: 0.25rem;
+    font-size: 0.40rem;
     font-weight: bold;
   }
   
