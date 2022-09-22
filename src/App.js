@@ -126,7 +126,7 @@ function App() {
         </Route>
         <Route path="/home" element={<Home />} />
         <Route path="/home/myProfile" element={<MyProfile />} />
-        <Route path="/home/booking/:shipId" element={<Booking />} />
+        <Route path="/home/booking/:trainId" element={<Booking />} />
         <Route path="/home/myBookings" element={<MyBookings />} />
       </Routes>
     </Suspense>

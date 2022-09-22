@@ -1,20 +1,11 @@
 .trainlist {
     list-style: none;
     padding: 0;
-    margin-left: 5%;
+    margin-left: 20%;
     margin-right: 5%;
   }
   
   .train__fallback {
     color: white;
-    text-align: center;
-  }
-
-  .total {
-    color: rgb(0, 0, 0);
-    text-align: center;
-  }
-
-  .actions {
     text-align: center;
   }

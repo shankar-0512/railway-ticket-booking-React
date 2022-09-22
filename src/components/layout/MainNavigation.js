@@ -14,7 +14,7 @@ const MainNavigation = (props) => {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>Alien Propulsion</div>
+      <div className={classes.logo}>Continental Line</div>
       <nav className={classes.nav}>
         <ul>
           <li>

@@ -48,7 +48,6 @@ function MyProfile() {
   //STATES
   const [enableForm, setEnableForm] = useState(false);
   const [userName, setUserName] = useState(fetchResponse.userName);
-  const [basePlanet, setBasePlanet] = useState(fetchResponse.basePlanet);
   const [dob, setDob] = useState(fetchResponse.dob);
   const [oldPsw, setOldPsw] = useState("");
   const [newPsw, setNewPsw] = useState("");
@@ -58,7 +57,6 @@ function MyProfile() {
 
   //REFS
   const nameInputRef = useRef();
-  const planetInputRef = useRef();
   const dateInputRef = useRef();
   const oldPswInputRef = useRef();
   const newPswInputRef = useRef();
@@ -92,7 +90,6 @@ function MyProfile() {
       body: {
         email: requestJson.userEmail,
         name: requestJson.userName,
-        basePlanet: requestJson.basePlanet,
         dob: requestJson.dob,
       },
       errorMsg: "Request failed!",
@@ -131,10 +128,6 @@ function MyProfile() {
     setUserName(event.target.value);
   }
 
-  function planetChangeHandler(event) {
-    setBasePlanet(event.target.value);
-  }
-
   function dateChangeHandler(event) {
     setDob(event.target.value);
   }
@@ -155,9 +148,8 @@ function MyProfile() {
 
   useEffect(() => {
     setUserName(fetchResponse.userName);
-    setBasePlanet(fetchResponse.basePlanet);
     setDob(fetchResponse.dob);
-  }, [fetchResponse.userName, fetchResponse.basePlanet, fetchResponse.dob]);
+  }, [fetchResponse.userName, fetchResponse.dob]);
 
   useEffect(() => {
     const requestJson = { userEmail };
@@ -169,7 +161,6 @@ function MyProfile() {
     const requestJson = {
       userEmail,
       userName,
-      basePlanet,
       dob,
     };
 
@@ -359,11 +350,11 @@ function MyProfile() {
         {(pswError ||
           pswResponse.responseCode !== undefined ||
           pswCode === 0) && (
-          <Modal>
-            {passwordModalContent}
-            {passwordModalActions}
-          </Modal>
-        )}
+            <Modal>
+              {passwordModalContent}
+              {passwordModalActions}
+            </Modal>
+          )}
         {(saveError || saveResponse.responseCode !== undefined) && (
           <Modal>
             {saveModalContent}
@@ -384,10 +375,6 @@ function MyProfile() {
             <div className={classes.control}>
               <label>Password : </label>
               <label>{fetchResponse.userPassword}</label>
-            </div>
-            <div className={classes.control}>
-              <label>Base Planet : </label>
-              <label>{fetchResponse.basePlanet}</label>
             </div>
             <div className={classes.control}>
               <label>Date of Birth : </label>
@@ -430,48 +417,6 @@ function MyProfile() {
                 value={userName}
                 onChange={nameChangeHandler}
               />
-              <div className={styles.control}>
-                <label>Base Planet</label>
-                <select
-                  ref={planetInputRef}
-                  className={loginStyles.select}
-                  name="planetList"
-                  id="planets"
-                  value={basePlanet}
-                  onChange={planetChangeHandler}
-                >
-                  <option value="" style={{ color: "grey" }}>
-                    Select an Option
-                  </option>
-                  <option value="Earth" style={{ color: "black" }}>
-                    Earth
-                  </option>
-                  <option value="Mars" style={{ color: "black" }}>
-                    Mars
-                  </option>
-                  <option value="Moon" style={{ color: "black" }}>
-                    Moon
-                  </option>
-                  <option value="Ceres" style={{ color: "black" }}>
-                    Ceres
-                  </option>
-                  <option value="Europa" style={{ color: "black" }}>
-                    Europa
-                  </option>
-                  <option value="Titan" style={{ color: "black" }}>
-                    Titan
-                  </option>
-                  <option value="EB-15" style={{ color: "black" }}>
-                    EB-15
-                  </option>
-                  <option value="ISS" style={{ color: "black" }}>
-                    ISS
-                  </option>
-                  <option value="Kepler-186F" style={{ color: "black" }}>
-                    Kepler-186F
-                  </option>
-                </select>
-              </div>
               <div className={styles.control}>
                 <label htmlFor="date">Date of Birth</label>
                 <input

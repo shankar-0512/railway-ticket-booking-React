@@ -24,11 +24,11 @@ function Booking() {
   const userId = localStorage.getItem("userId");
 
   const params = useParams();
-  const { shipId } = params;
+  const { trainId } = params;
 
   const boardingStation = useSelector((state) => state.user.from);
   const arrivalStation = useSelector((state) => state.user.to);
-  const shipClass = useSelector((state) => state.user.class);
+  const trainClass = useSelector((state) => state.user.class);
   const journeyDate = useSelector((state) => state.user.journeyDate);
 
   const {
@@ -141,8 +141,8 @@ function Booking() {
         userName: requestJson.userName,
         userEmail: requestJson.email,
         userAge: requestJson.age,
-        shipId: requestJson.shipId,
-        shipClass: requestJson.shipClass,
+        trainId: requestJson.trainId,
+        trainClass: requestJson.trainClass,
         boardingStation: requestJson.boardingStation,
         arrivalStation: requestJson.arrivalStation,
         journeyDate: requestJson.journeyDate,
@@ -227,8 +227,8 @@ function Booking() {
       userName,
       email,
       age,
-      shipId,
-      shipClass,
+      trainId,
+      trainClass,
       boardingStation,
       arrivalStation,
       journeyDate,

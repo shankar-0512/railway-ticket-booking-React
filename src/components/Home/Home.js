@@ -4,7 +4,7 @@ import classes from "../Home/Home.module.css";
 import styles from "../CommonInput/Input.module.css";
 import Button from "../UI/Button/Button";
 import useHttp from "../../hooks/use-http";
-import ShipList from "./ShipList";
+import TrainList from "./TrainList";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import moment from "moment";
 import { useDispatch } from "react-redux";
@@ -40,9 +40,9 @@ function Home() {
   //************API CALLS************//
 
   //Request to backend for login and sign-up
-  const SearchShipsHandler = async (requestJson) => {
+  const SearchTrainsHandler = async (requestJson) => {
     sendTaskRequest({
-      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/searchShips",
+      url: "https://space-ticket-booking-java.herokuapp.com/api/protected/searchTrains",
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ function Home() {
       body: {
         from: requestJson.enteredFrom,
         to: requestJson.enteredTo,
-        shipClass: requestJson.enteredClass,
+        trainClass: requestJson.enteredClass,
         journeyDate: new Date(requestJson.enteredDate),
       },
       errorMsg: "Request failed!",
@@ -110,7 +110,7 @@ function Home() {
         class: true,
         date: true,
       });
-      SearchShipsHandler(requestJson);
+      SearchTrainsHandler(requestJson);
       fromInputRef.current.value = "none";
       toInputRef.current.value = "";
       classInputRef.current.value = "";
@@ -142,7 +142,7 @@ function Home() {
       <Layout>
         <section className={classes.summary}>
           <img src={phoenix} alt="" />
-          <h3 className={classes.heading}>Book a Ship</h3>
+          <h3 className={classes.heading}>Book a Train</h3>
           <form onSubmit={submitHandler}>
             {!formInputsValidity.from && (
               <p className={classes.error}>Please select an Origin!</p>
@@ -158,26 +158,26 @@ function Home() {
                 <option value="none" style={{ color: "grey" }}>
                   Select an Option
                 </option>
-                <option value="Earth" style={{ color: "black" }}>
-                  Earth
+                <option value="London" style={{ color: "black" }}>
+                  London
                 </option>
-                <option value="Mars" style={{ color: "black" }}>
-                  Mars
+                <option value="Paris" style={{ color: "black" }}>
+                  Paris
                 </option>
-                <option value="Moon" style={{ color: "black" }}>
-                  Moon
+                <option value="Berlin" style={{ color: "black" }}>
+                  Berlin
                 </option>
-                <option value="Ceres" style={{ color: "black" }}>
-                  Ceres
+                <option value="Manchester" style={{ color: "black" }}>
+                  Manchester
                 </option>
-                <option value="Europa" style={{ color: "black" }}>
-                  Europa
+                <option value="Liverpool" style={{ color: "black" }}>
+                  Liverpool
                 </option>
-                <option value="Titan" style={{ color: "black" }}>
-                  Titan
+                <option value="Turin" style={{ color: "black" }}>
+                  Turin
                 </option>
-                <option value="Kepler-186F" style={{ color: "black" }}>
-                  Kepler-186F
+                <option value="Rome" style={{ color: "black" }}>
+                  Rome
                 </option>
               </select>
             </div>
@@ -200,26 +200,26 @@ function Home() {
                 <option value="" style={{ color: "grey" }}>
                   Select an Option
                 </option>
-                <option value="Earth" style={{ color: "black" }}>
-                  Earth
+                <option value="London" style={{ color: "black" }}>
+                  London
                 </option>
-                <option value="Mars" style={{ color: "black" }}>
-                  Mars
+                <option value="Paris" style={{ color: "black" }}>
+                  Paris
                 </option>
-                <option value="Moon" style={{ color: "black" }}>
-                  Moon
+                <option value="Berlin" style={{ color: "black" }}>
+                  Berlin
                 </option>
-                <option value="Ceres" style={{ color: "black" }}>
-                  Ceres
+                <option value="Manchester" style={{ color: "black" }}>
+                  Manchester
                 </option>
-                <option value="Europa" style={{ color: "black" }}>
-                  Europa
+                <option value="Liverpool" style={{ color: "black" }}>
+                  Liverpool
                 </option>
-                <option value="Titan" style={{ color: "black" }}>
-                  Titan
+                <option value="Turin" style={{ color: "black" }}>
+                  Turin
                 </option>
-                <option value="Kepler-186F" style={{ color: "black" }}>
-                  Kepler-186F
+                <option value="Rome" style={{ color: "black" }}>
+                  Rome
                 </option>
               </select>
             </div>
@@ -263,15 +263,15 @@ function Home() {
             </div>
             <div className={classes.action}>
               <Button type="submit" className={classes.actions} >
-                Search Ships
+                Search Trains
               </Button>
             </div>
           </form>
         </section>
       </Layout>
-      <section className={classes.ships}>
+      <section className={classes.trains}>
         <div>
-          <ShipList ships={response} />
+          <TrainList trains={response} />
         </div>
       </section>
     </div>

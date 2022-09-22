@@ -1,4 +1,4 @@
-import ShipsCard from "../UI/Card/ShipsCard";
+import TrainsCard from "../UI/Card/TrainsCard";
 import classes from "./Tickets.module.css";
 import ticketClasses from "../UI/Button/Button.module.css";
 import TicketDate from "./TicketDate";
@@ -14,7 +14,7 @@ function Tickets(props) {
 
   return (
     <li>
-      <ShipsCard className={classes.ticket}>
+      <TrainsCard className={classes.ticket}>
         <TicketDate journeyDate={props.journeyDate} />
         <div className={classes.ticket__description}>
           <p className={statusClasses}>{status}</p>
@@ -33,7 +33,7 @@ function Tickets(props) {
         >
           Cancel
         </Button>
-      </ShipsCard>
+      </TrainsCard>
     </li>
   );
 }

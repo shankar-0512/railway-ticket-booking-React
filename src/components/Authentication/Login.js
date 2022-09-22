@@ -79,22 +79,6 @@ function rePasswordReducer(state, action) {
   return { value: "", isvalid: false };
 }
 
-function planetReducer(state, action) {
-  if (action.type === "USER_INPUT") {
-    return { value: action.val, isvalid: action.val.trim() !== "" };
-  }
-  if (action.type === "INPUT_BLUR") {
-    return {
-      value: state.value,
-      isvalid: state.value.trim() !== "",
-    };
-  }
-  if (action.type === "CLEAR") {
-    return { value: "", isvalid: null };
-  }
-  return { value: "", isvalid: false };
-}
-
 function dateReducer(state, action) {
   if (action.type === "USER_INPUT") {
     return { value: action.val, isvalid: action.val.trim() !== "" };
@@ -139,11 +123,6 @@ function Login(props) {
     isvalid: null,
   });
 
-  const [planetState, dispatchPlanet] = useReducer(planetReducer, {
-    value: "",
-    isvalid: null,
-  });
-
   const [dateState, dispatchDate] = useReducer(dateReducer, {
     value: "",
     isvalid: null,
@@ -154,7 +133,6 @@ function Login(props) {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const rePasswordInputRef = useRef();
-  const planetInputRef = useRef();
   const dateInputRef = useRef();
 
   const {
@@ -176,7 +154,6 @@ function Login(props) {
               emailState.isvalid &&
               passwordState.isvalid &&
               rePasswordState.isvalid &&
-              planetState.isvalid &&
               dateState.isvalid
           );
         } else {
@@ -195,7 +172,6 @@ function Login(props) {
       emailState.isvalid,
       passwordState.isvalid,
       rePasswordState.isvalid,
-      planetState.isvalid,
       dateState.isvalid,
       props.signUpFlag,
       formisvalid,
@@ -217,7 +193,6 @@ function Login(props) {
         email: requestJson.enteredEmail,
         password: requestJson.enteredPassword,
         rePassword: requestJson.enteredRePassword,
-        basePlanet: requestJson.enteredPlanet,
         dob: requestJson.enteredDate,
         signUpF: requestJson.signUpFlag,
       },
@@ -252,12 +227,6 @@ function Login(props) {
   function validateRePasswordHandler() {
     dispatchRePassword({ type: "INPUT_BLUR" });
   }
-  function planetChangeHandler(event) {
-    dispatchPlanet({ type: "USER_INPUT", val: event.target.value });
-  }
-  function validatePlanetHandler() {
-    dispatchPlanet({ type: "INPUT_BLUR" });
-  }
   function dateChangeHandler(event) {
     dispatchDate({ type: "USER_INPUT", val: event.target.value });
   }
@@ -275,7 +244,6 @@ function Login(props) {
       const enteredEmail = emailState.value;
       const enteredPassword = passwordState.value;
       const enteredRePassword = rePasswordState.value;
-      const enteredPlanet = planetState.value;
       const enteredDate = dateState.value;
 
       if (formisvalid) {
@@ -284,7 +252,6 @@ function Login(props) {
           enteredEmail,
           enteredPassword,
           enteredRePassword,
-          enteredPlanet,
           enteredDate,
           signUpFlag: "Y",
         };
@@ -296,7 +263,6 @@ function Login(props) {
         dispatchEmail({ type: "CLEAR" });
         dispatchPassword({ type: "CLEAR" });
         dispatchRePassword({ type: "CLEAR" });
-        dispatchPlanet({ type: "CLEAR" });
         dispatchDate({ type: "CLEAR" });
       }
     } else {
@@ -436,54 +402,6 @@ function Login(props) {
             onChange={rePasswordChangeHandler}
             onBlur={validateRePasswordHandler}
           />
-        )}
-        {props.signUpFlag && planetState.isvalid === false && (
-          <p className={classes.error}>Please select a valid Planet!</p>
-        )}
-        {props.signUpFlag && (
-          <div className={styles.control}>
-            <label>Base Planet</label>
-            <select
-              ref={planetInputRef}
-              className={classes.select}
-              name="planetList"
-              id="planets"
-              value={planetState.value}
-              onChange={planetChangeHandler}
-              onBlur={validatePlanetHandler}
-            >
-              <option value="" style={{ color: "grey" }}>
-                Select an Option
-              </option>
-              <option value="Earth" style={{ color: "black" }}>
-                Earth
-              </option>
-              <option value="Mars" style={{ color: "black" }}>
-                Mars
-              </option>
-              <option value="Moon" style={{ color: "black" }}>
-                Moon
-              </option>
-              <option value="Ceres" style={{ color: "black" }}>
-                Ceres
-              </option>
-              <option value="Europa" style={{ color: "black" }}>
-                Europa
-              </option>
-              <option value="Titan" style={{ color: "black" }}>
-                Titan
-              </option>
-              <option value="EB-15" style={{ color: "black" }}>
-                EB-15
-              </option>
-              <option value="ISS" style={{ color: "black" }}>
-                ISS
-              </option>
-              <option value="Kepler-186F" style={{ color: "black" }}>
-                Kepler-186F
-              </option>
-            </select>
-          </div>
         )}
         {props.signUpFlag && dateState.isvalid === false && (
           <p className={classes.error}>Please select your D.O.B</p>

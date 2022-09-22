@@ -75,29 +75,29 @@
 
 @media (min-width: 853px) {
 
-  .ship {
+  .train {
     min-width: 100%;
     margin-right: 5%;
     margin-left: 0%;
   }
 
-  .ship__description {
+  .train__description {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     flex: 1;
   }
 
-  .ship__description h2 {
+  .train__description h2 {
     font-size: 1.25rem;
   }
 
-  .ship__price {
+  .train__price {
     font-size: 1.25rem;
     padding: 0.5rem 1.5rem;
   }
 
-  .ship__actions {
+  .train__actions {
     font-size: 1.25rem;
     text-align: center;
     margin: 2%;

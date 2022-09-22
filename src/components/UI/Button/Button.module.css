@@ -1,5 +1,5 @@
 .button {
-  background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+  background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
   margin: 10px;
   padding: 0.50rem 1.5rem;
   cursor: pointer;
@@ -8,7 +8,7 @@
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;            
+  color: rgb(0, 0, 0);            
   box-shadow: 0 0 20px #eee;
   border: 1px solid white;
   border-radius: 30px;
@@ -18,7 +18,7 @@
 
 .button:hover {
   background-position: right center; /* change the direction of the change here */
-  color: #fff;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
@@ -36,8 +36,8 @@ button:active:disabled {
   cursor: not-allowed;
 }
 
-.ship_button {
-  background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+.train_button {
+  background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
   margin: 10px;
   padding: 0.50rem 1.5rem;
   cursor: pointer;
@@ -46,7 +46,7 @@ button:active:disabled {
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;            
+  color: rgb(0, 0, 0);            
   box-shadow: 0 0 20px #eee;
   border-radius: 30px;
   box-shadow: 0 0 20px #eee;
@@ -56,13 +56,13 @@ button:active:disabled {
   margin: 2%;
 }
 
-.ship_button:hover {
+.train_button:hover {
   background-position: right center; /* change the direction of the change here */
-  color: #fff;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
-.ship_button:focus {
+.train_button:focus {
   outline: none;
 }
 
