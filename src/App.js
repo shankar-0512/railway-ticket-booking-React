@@ -90,7 +90,7 @@ function App() {
             path=""
             element={
               <Link
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", color: "#FF8008" }}
                 className={null}
                 to={"/signUp"}
                 onClick={resetNavigateLoginF}
@@ -114,7 +114,7 @@ function App() {
             path=""
             element={
               <Link
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", color: "#FF8008" }}
                 className={null}
                 to={"/login"}
                 onClick={postSignUpHandler}
