@@ -50,7 +50,7 @@
   font-size: 1.25rem;
 }
 .button{
-  box-shadow: 0 0 8px #eee;
+  box-shadow: 0 0 0px rgb(0, 0, 0);
   border: none;
 }
 .actions {
