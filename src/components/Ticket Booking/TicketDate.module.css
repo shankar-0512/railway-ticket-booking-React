@@ -5,9 +5,9 @@
     height: 7rem;
     font-size: 0.75rem;
     border: 1px solid #ffffff;
-    background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+    background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
     background-size: 200% auto;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border-radius: 12px;
     align-items: center;
     justify-content: center;

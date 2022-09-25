@@ -43,8 +43,6 @@
 .nav a:active,
 .nav a.active {
   color: rgb(255, 255, 255);
-
-
 }
 
 @media (min-width: 1322px) {

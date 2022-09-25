@@ -65,8 +65,8 @@
 .ticket__price {
   font-size: 1rem;
   font-weight: bold;
-  color: rgb(255, 255, 255);
-  background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+  color: rgb(0, 0, 0);
+  background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
   background-size: 200% auto;
   border: 1px solid rgb(255, 255, 255);
   padding: 0.5rem;
